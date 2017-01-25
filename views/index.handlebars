@@ -5,8 +5,8 @@
     <li>
       <p>
         {{id}}. {{burger_name}}
-        <form action="/{{this.id}}?_method=DELETE" method="POST">
-          <input type="hidden" name="id" value="{{this.id}}">
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="id" value="{{1}}">
           <button type="submit">Delete</button>
         </form>
       </p>
