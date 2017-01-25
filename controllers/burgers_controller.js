@@ -1,15 +1,21 @@
-// var app = express();
-// require("../models/burger.js")(app);
-
-
-// app.get("/public", function (req, res) {
-//     res.sendFile(path.join(__dirname, "/../public/survey.html"));
-// });
-// // To list of friends in json format
-// app.get("/api/friends", function (req, res) {
-//     res.sendFile(path.join(__dirname, "/../data/friends.js"));
-// });
-// // For home page, user can input anything that isn't the above
-// app.use(function (req, res) {
-//     res.sendFile(path.join(__dirname, "/../public/home.html"));
-// });
+var burgerFunctions = require("../models/burger.js");
+module.exports = function(app) {
+    app.get("/", function(req, res) {
+        burgerFunctions.getAll(function(data) {
+            console.log('All Burgers: ' + data);
+            res.render("index", {
+                burgers: data
+            });
+        });
+    });
+    app.post('/', function(req, res) {
+        var newBurg = req.body.burger;
+        if (newBurg !== "") {
+            burgerFunctions.addBurger(newBurg, function() {
+                res.redirect('/');
+            });
+        } else {
+            res.redirect('/');
+        }
+    });
+};
