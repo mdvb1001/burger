@@ -1,43 +1,58 @@
-
-<div class="jumbotron">
-<h1 class="text-center">Burgers to Eat</h1>
-</div>
 <div class="container">
 <div class="row">
-<div class="col-sm-4 col-md-4 col-lg-4" border="2px red bold">
+<div class="jumbotron">
+<h1 class="text-center">EAT DA BURGA</h1>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-4 col-md-4 col-lg-4">
+<div class="panel panel-default">
+  <div class="panel-heading">Delicious Burger</div>
+    <div class="panel-body">
 {{!-- <ul> --}}
   {{#each burgers}}
     {{!-- <li id="thisBurger"> --}}
-      <h4>
-        <i class="ionicons ion-knife"></i>{{id}}. {{burger_name}}. {{devoured}}
+      <p>
+        {{id}}. {{burger_name}}. {{devoured}}
         <form action="/{{this.id}}?_method=PUT" method="POST">
           <input type="hidden" name="id" value="{{this.id}}">
-          <button type="submit" id="devour" margin="20px" class="btn btn-info">Devour</button>
+          <button type="submit" id="devour" margin="20px" class="btn btn-success">Devour</button>
         </form>
-      </h4>
+      </p>
     {{!-- </li> --}}
   {{/each}}
 {{!-- </ul> --}}
+    </div>
+  </div>
 </div>
 
 <div class="col-sm-4 col-md-4 col-lg-4">
-<form class="form-horizontal" method="POST" action="/" class="button-size">
-<fieldset>
-    <legend class="text-center col-xs-12">Add a Burger</legend>
-    <div class="form-group">
-        <div class="col-xs-12">
-            <input type="text" name="burger" class="form-control" >
-        </div>
+  <div class="panel panel-default">
+      <div class="panel-body">
+      <form class="form-horizontal" method="POST" action="/" class="button-size">
+      <fieldset>
+        <legend class="text-center col-xs-12">Make a Burger</legend>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <input type="text" name="burger" class="form-control" >
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <button type="submit" class="btn btn-success btn-block">Create!</button>
+            </div>
+          </div>
+      </fieldset>
+    </form>
     </div>
-    <div class="form-group">
-        <div class="col-xs-12">
-            <button type="submit" class="btn btn-info btn-block">Create a Burger!</button>
-        </div>
-    </div>
-</fieldset>
-</form>
+  </div>
 </div>
-<div id="devouredBurger" class="col-sm-4 col-md-4 col-lg-4">
+
+
+<div class="col-sm-4 col-md-4 col-lg-4">
+<div class="panel panel-default">
+  <div class="panel-heading">Devoured Burger</div>
+    <div class="panel-body">
 {{!-- <ul> --}}
   {{#each devoured_burgers}}
     {{!-- <li id="thisDevouredBurger"> --}}
@@ -50,6 +65,11 @@
     {{!-- </li> --}}
   {{/each}}
 {{!-- </ul> --}}
+    </div>
+  </div>
 </div>
 
 </div>
+ <img src="/assets/img/burger_choice.jpg" alt="burgerfuck">
+</div>
+

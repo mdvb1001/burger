@@ -12,12 +12,12 @@ module.exports = function (app) {
             });
         });
     });
-    app.get("/api", function (req, res) {
+    app.get("/api/burgers", function (req, res) {
         burgerFunctions.getAll(function (data) {
             res.json(data);
         });
     });
-    app.get("/api/:id", function (req, res) {
+    app.get("/api/burgers/:id", function (req, res) {
         burgerFunctions.getBurgerById(req.params.id, function (data) {
             res.json(data);
         });

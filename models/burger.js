@@ -8,6 +8,11 @@ var exphbs = require("express-handlebars");
 var connectionSQL = require('../config/connection.js');
 module.exports = { //
     // module.exports = function (app) {
+    getAll: function (callback) {
+        connectionSQL.query("SELECT * FROM burgers", function (err, data) {
+            callback(data);
+        });
+    },
     getUneaten: function (callback) {
         connectionSQL.query("SELECT * FROM burgers WHERE devoured = 0", function (err, data) {
             callback(data);
