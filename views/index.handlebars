@@ -1,29 +1,55 @@
-<h1>Burgers to Eat</h1>
 
-<ul>
+<div class="jumbotron">
+<h1 class="text-center">Burgers to Eat</h1>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-sm-4 col-md-4 col-lg-4" border="2px red bold">
+{{!-- <ul> --}}
   {{#each burgers}}
-    <li>
-      <p>
-        {{id}}. {{burger_name}}
+    {{!-- <li id="thisBurger"> --}}
+      <h4>
+        <i class="ionicons ion-knife"></i>{{id}}. {{burger_name}}. {{devoured}}
         <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="id" value="{{1}}">
-          <button type="submit">Delete</button>
+          <input type="hidden" name="id" value="{{this.id}}">
+          <button type="submit" id="devour" margin="20px" class="btn btn-info">Devour</button>
+        </form>
+      </h4>
+    {{!-- </li> --}}
+  {{/each}}
+{{!-- </ul> --}}
+</div>
+
+<div class="col-sm-4 col-md-4 col-lg-4">
+<form class="form-horizontal" method="POST" action="/" class="button-size">
+<fieldset>
+    <legend class="text-center col-xs-12">Add a Burger</legend>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <input type="text" name="burger" class="form-control" >
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-info btn-block">Create a Burger!</button>
+        </div>
+    </div>
+</fieldset>
+</form>
+</div>
+<div id="devouredBurger" class="col-sm-4 col-md-4 col-lg-4">
+{{!-- <ul> --}}
+  {{#each devoured_burgers}}
+    {{!-- <li id="thisDevouredBurger"> --}}
+      <p>
+        {{id}}. {{burger_name}}. {{devoured}}
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="id" value="{{this.id}}">
         </form>
       </p>
-    </li>
+    {{!-- </li> --}}
   {{/each}}
-</ul>
+{{!-- </ul> --}}
+</div>
 
-<h2>Add a burger to eat</h2>
-<form method="POST" action="/" class="button-size">
-  <textarea type="text" name="burger"></textarea>
-  <button type="submit">Save Movie!</button>
-</form>
-
-{{!-- <h2>Update a Movie</h2>
-<form action="/?_method=PUT" method="POST" class="button-size">
-  <input type="text" name="id" placeholder="id">
-  <textarea type="text" name="movie" placeholder="what do you want to update this movie title to?"></textarea>
-  <button type="submit">Update Movie!</button>
-</form>
- --}}
+</div>
