@@ -1,13 +1,14 @@
 <div class="container">
 <div class="row">
-<div class="jumbotron">
-<h1 class="text-center">EAT DA BURGA</h1>
+<div class="jumbotron main-banner">
+<h1 class="text-center">Eat da Burga!</h1>
+<img src="/assets/img/burger_choice.jpg" class="center-block" alt="burger" height="120">
 </div>
 </div>
 <div class="row">
 <div class="col-sm-4 col-md-4 col-lg-4">
 <div class="panel panel-default">
-  <div class="panel-heading">Delicious Burger</div>
+  <div class="panel-heading">DELICIOUS BURGERS</div>
     <div class="panel-body">
 {{!-- <ul> --}}
   {{#each burgers}}
@@ -31,7 +32,7 @@
       <div class="panel-body">
       <form class="form-horizontal" method="POST" action="/" class="button-size">
       <fieldset>
-        <legend class="text-center col-xs-12">Make a Burger</legend>
+        <legend class="text-center col-xs-12">- Make a Burger -</legend>
           <div class="form-group">
             <div class="col-xs-12">
               <input type="text" name="burger" class="form-control" >
@@ -45,13 +46,14 @@
       </fieldset>
     </form>
     </div>
+   {{!--  <img src="/assets/img/burger_choice.jpg" class="center-block" alt="burger" height="120"> --}}
   </div>
 </div>
 
 
 <div class="col-sm-4 col-md-4 col-lg-4">
 <div class="panel panel-default">
-  <div class="panel-heading">Devoured Burger</div>
+  <div class="panel-heading">DEVOURED BURGERS</div>
     <div class="panel-body">
 {{!-- <ul> --}}
   {{#each devoured_burgers}}
@@ -69,7 +71,5 @@
   </div>
 </div>
 
-</div>
- <img src="/assets/img/burger_choice.jpg" alt="burgerfuck">
-</div>
+
 
